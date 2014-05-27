@@ -11,7 +11,7 @@ public class State
 	
 	public static State makeStartState()
 	{
-		knownStates = new HashSet<Integer>();
+		knownStates = new HashSet<Integer>();//visited states
 		solved = false;
 		numTrips = 0;
 		numGeneratedStates = 0;
@@ -23,16 +23,19 @@ public class State
 		return start;
 	}
 	
+	//number of trips made
 	public static int askNumTrips()
 	{
 		return numTrips;
 	}
 	
+	//number of total states generated
 	public static int askNumGeneratedStates()
 	{
 		return numGeneratedStates;
 	}
 	
+	//reached the solution
 	public static boolean isSolved()
 	{
 		return solved;
@@ -158,7 +161,7 @@ public class State
 	//////////////////////////////////////// Private Methods //////////////////////////////////
 	private State()
 	{
-		this(3,3,0,0,State.BoatPos.LEFT);
+		this(3,3,0,0,State.BoatPos.LEFT); //initial state, 3C3M on left bank
 	}
 	
 	private State(State s)
@@ -207,6 +210,7 @@ public class State
 		if(total > 0 && _boatPos == State.BoatPos.LEFT) System.out.print("-->");
 	}
 		
+	//key creation for hashSet	
 	private int makeKey()
 	{
 		int bank;
